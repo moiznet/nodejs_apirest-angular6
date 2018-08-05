@@ -3,6 +3,7 @@ var express = require("express"),
     bodyParser  = require("body-parser"),
     methodOverride = require("method-override"),
     MongoClient = require('mongodb').MongoClient,
+    mongodb = require("mongodb"),
     port = process.env.port || 8080;
 
 
@@ -15,53 +16,6 @@ app.use(methodOverride());
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
-
-
-// router premises
-//var router = express.Router();
-// var router_module = require('./router/router.js');
-// router_module.end_points(router);
-
-
-//         app.route('/api/conductores')
-//         .get(function(req, res)    {    res.send("hola tu");  })
-//         .post(function(req, res)   {     })
-//         .put(function(req, res)   {     }); 
-
-
-//         app.route('/api/vehiculos')
-//         .get(function(req, res)    {   res.send("hola tu");   })
-//         .post(function(req, res)   {     })
-//         .put(function(req, res)   {      }); 
-
-//         app.route('/api/usuarios')
-//         .get(function(req, res)    { res.send("hola tu");  })
-//         .post(function(req, res)   {     })
-//         .put(function(req, res)   {      });
-
-
-//         app.route('/api/logger')
-//         .get(function(req, res)    {   res.send("hola tu");   });
-
- 
-//        app.route('/api/asignar')
-//          .get(function(req, res)    {    res.send("hola tu");   })
-//          .put(function(req, res)    {      });
-
-
-
-
-// app.use(router);
-
-
-
-// app.listen( port , function() {
-//         global.debug_logger("Node server running on http://localhost:"+port,false);
-//     });
-
-
-
-
 
 
 
@@ -93,7 +47,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
   console.log("Database connection ready");
 
   // Initialize the app.
-  var server = app.listen(process.env.port || 8080, function () {
+  var server = app.listen(port, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
   });
