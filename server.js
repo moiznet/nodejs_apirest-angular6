@@ -1,36 +1,16 @@
-var express = require("express"),
-    app = express(),
-    bodyParser  = require("body-parser"),
-    methodOverride = require("method-override"),
-    MongoClient = require('mongodb').MongoClient,
-    mongodb = require("mongodb"),
-    port = process.env.port || 8080;
+var express = require("express");
+var bodyParser = require("body-parser");
+var mongodb = require("mongodb");
+var ObjectID = mongodb.ObjectID;
 
+var CONTACTS_COLLECTION = "contacts";
 
-// bodypharse
-app.use(bodyParser.urlencoded({ extended: false }));
+var app = express();
 app.use(bodyParser.json());
-app.use(methodOverride());
-
 
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
-
-
-
-
-
-
-
-
-
-
-var CONTACTS_COLLECTION = "contacts";
-
-
-
-
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
@@ -47,7 +27,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
   console.log("Database connection ready");
 
   // Initialize the app.
-  var server = app.listen(port, function () {
+  var server = app.listen(process.env.PORT || 8080, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
   });
