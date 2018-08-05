@@ -17,7 +17,7 @@ module.exports =  {
 
 
 
-         MongoClient.connect(url+'?authMode=scram-sha1',(err, client)  =>  {
+         MongoClient.connect(url,(err, client)  =>  {
             assert.equal(null, err);
             //global.debug_logger("Conectado al servidor",false); 
 
