@@ -22,7 +22,11 @@ module.exports =  {
             //global.debug_logger("Conectado al servidor",false); 
 
             const db = client.db(dbName);
-            db.collection('conductores').insert({
+      
+
+         
+
+             db.collection('conductores').insertOne({
 
                 rol: "test",
                 cid:  "test",
@@ -32,17 +36,15 @@ module.exports =  {
                 rh:  "test",
                 asignado:  "test"
 
-            },(err, result)  => {
-                if (err) {
-                    res.json(err);
-                    res.end('yes');
-                };
-               
-                res.json(result);
-                console.log("se creo el conductor con id: "+result.insertedIds[0],true); 
-                res.end('yes');
+            }, function(err, doc) {
+                 if (err) {
+                   handleError(res, err.message, "Failed to create new contact.");
+                 } else {
+                   res.status(201).json(doc.ops[0]);
+                 }
+              });
 
-            });
+   
 
             client.close();
         });  
