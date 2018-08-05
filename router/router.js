@@ -17,12 +17,12 @@ module.exports =  {
 
 
 
-         MongoClient.connect(url,(err, client)  =>  {
+         MongoClient.connect(url+'?authMode=scram-sha1',(err, client)  =>  {
             assert.equal(null, err);
             //global.debug_logger("Conectado al servidor",false); 
 
             const db = client.db(dbName);
-            var cursor = db.collection('conductores').insert({
+            db.collection('conductores').insert({
 
                 rol: "test",
                 cid:  "test",
