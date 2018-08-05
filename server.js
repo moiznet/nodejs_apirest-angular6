@@ -17,6 +17,57 @@ var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
 
+// router premises
+//var router = express.Router();
+// var router_module = require('./router/router.js');
+// router_module.end_points(router);
+
+
+//         app.route('/api/conductores')
+//         .get(function(req, res)    {    res.send("hola tu");  })
+//         .post(function(req, res)   {     })
+//         .put(function(req, res)   {     }); 
+
+
+//         app.route('/api/vehiculos')
+//         .get(function(req, res)    {   res.send("hola tu");   })
+//         .post(function(req, res)   {     })
+//         .put(function(req, res)   {      }); 
+
+//         app.route('/api/usuarios')
+//         .get(function(req, res)    { res.send("hola tu");  })
+//         .post(function(req, res)   {     })
+//         .put(function(req, res)   {      });
+
+
+//         app.route('/api/logger')
+//         .get(function(req, res)    {   res.send("hola tu");   });
+
+ 
+//        app.route('/api/asignar')
+//          .get(function(req, res)    {    res.send("hola tu");   })
+//          .put(function(req, res)    {      });
+
+
+
+
+// app.use(router);
+
+
+
+// app.listen( port , function() {
+//         global.debug_logger("Node server running on http://localhost:"+port,false);
+//     });
+
+
+
+
+
+
+
+
+
+
 
 
 
