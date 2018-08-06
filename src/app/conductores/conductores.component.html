@@ -1,0 +1,16 @@
+<p>
+  conductores works! {{nombre}}
+</p>
+
+<div>
+    <h2>COnductores</h2>
+    <ul class="list-group">
+      <li class="list-group-item"
+        *ngFor="let contact of contacts"
+        (click)="selectContact(contact)"
+        [class.active]="contact === selectedContact">
+        {{contact.nombre}}
+      </li>
+    </ul>
+    <button class="btn btn-warning" (click)="createNewContact()">New</button>
+  </div>
