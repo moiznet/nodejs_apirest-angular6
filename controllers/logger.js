@@ -26,7 +26,7 @@ class Logger extends Date {
     saveLog(ip){ 
 
     	MongoClient.connect(url,(err, client)  =>  {
-            assert.equal(null, err);
+            //assert.equal(null, err);
             console.log("Conectado al servidor");
 
             const db = client.db(dbName);
@@ -60,7 +60,7 @@ class Logger extends Date {
 
 
     	MongoClient.connect(url,(err, client) => {
-            assert.equal(null, err);
+           //assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false);  
             const db = client.db(dbName);   
             var cursor = db.collection('logger').find().toArray((err, results) => {

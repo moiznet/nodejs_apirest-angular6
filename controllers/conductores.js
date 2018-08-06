@@ -27,7 +27,7 @@ class Conductores {
 
 
         MongoClient.connect(url,(err, client) => {
-            assert.equal(null, err);
+           // assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false);  
             const db = client.db(dbName);   
             var cursor = db.collection('conductores').find().toArray((err, results) => {
@@ -51,7 +51,7 @@ class Conductores {
 
 
         MongoClient.connect(url,(err, client)  =>  {
-            assert.equal(null, err);
+            //assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false); 
 
             const db = client.db(dbName);
@@ -88,7 +88,7 @@ class Conductores {
 
 
         MongoClient.connect(url,(err, client)  =>  {
-            assert.equal(null, err);
+            //assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false); 
 
             const db = client.db(dbName);

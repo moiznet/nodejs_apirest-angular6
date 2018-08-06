@@ -28,7 +28,7 @@ class Asignacion {
     	
 
         MongoClient.connect(url,(err, client)  =>  {
-            assert.equal(null, err);
+            //assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false); 
 
             const db = client.db(dbName);
@@ -62,7 +62,7 @@ class Asignacion {
     	
 
         MongoClient.connect(url,(err, client)  =>  {
-            assert.equal(null, err);
+            //assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false); 
             	console.log(req.body.vehiid);
             const db = client.db(dbName);
