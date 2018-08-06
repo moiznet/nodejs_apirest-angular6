@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConductoresComponent } from './conductores/conductores.component';
 
 @Component({
   selector: 'app-root',

@@ -1,3 +1,13 @@
+<nav>
+	<a [routerLink]="['/asignacion']">Rutas y asignacion</a> - 
+	<a [routerLink]="['/conductores']">Conductores </a> - 
+	<a [routerLink]="['/vehiculos']">Veiculos</a> - 
+	<a [routerLink]="['/usuarios']">Usuarios</a> - 
+	<a [routerLink]="['/logger']">Log de cambios</a>
+</nav>
+
 <div class="container">
-  <contact-list></contact-list>
+	<router-outlet>	</router-outlet>
+ <!--  <contact-list></contact-list> -->
+
 </div>

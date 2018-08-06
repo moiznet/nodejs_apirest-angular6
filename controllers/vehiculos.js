@@ -31,11 +31,8 @@ class Vehiculos {
             const db = client.db(dbName);   
             var cursor = db.collection('vehiculos').find().toArray((err, results) => {
                 if (err) throw err;
-                results.forEach((value) => {
-                    this.all +=  JSON.stringify(value);
-                });
-                res.setHeader('Content-Type', 'application/json'),
-                res.send(this.all);
+                res.setHeader('Content-Type', 'application/json');
+                res.status(201).json(results[0]);
                 res.end('yes');
             })
 
@@ -54,7 +51,7 @@ class Vehiculos {
             global.debug_logger("Conectado al servidor",false); 
 
             const db = client.db(dbName);
-            var cursor = db.collection('vehiculos').insert(
+            db.collection('vehiculos').insert(
 
                 {
 					t_vehiculo: this.t_vehiculo,

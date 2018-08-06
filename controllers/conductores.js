@@ -32,11 +32,10 @@ class Conductores {
             const db = client.db(dbName);   
             var cursor = db.collection('conductores').find().toArray((err, results) => {
                 if (err) throw err;
-                results.forEach((value) => {
-                    this.all += '' + JSON.stringify(value);
-                });
-                res.setHeader('Content-Type', 'application/json'),
-                res.send(this.all);
+                res.setHeader('Content-Type', 'application/json');
+                 res.header("Access-Control-Allow-Origin", "*");
+                res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                res.status(201).json(results[0]);
                 res.end('yes');
             })
 
@@ -52,7 +51,6 @@ class Conductores {
 
         MongoClient.connect(url,(err, client)  =>  {
             assert.equal(null, err);
-            global.debug_logger(req.body.nombre,false); 
             global.debug_logger("Conectado al servidor",false); 
             const db = client.db(dbName);
               db.collection('conductores').insert({

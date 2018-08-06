@@ -3,6 +3,13 @@ module.exports =  {
     end_points :  function(app)   {  
 
        var controller = require('../controllers/controller.js');
+
+       app.use(function(req, res, next) {
+          res.header("Access-Control-Allow-Origin", "*");
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+          next();
+        });
+       
        app.route('/').get(function(req, res) {  res.send("animo");  });
       
        app.route('/api/conductores')

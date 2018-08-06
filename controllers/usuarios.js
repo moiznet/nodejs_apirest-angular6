@@ -31,11 +31,8 @@ class Usuarios {
             const db = client.db(dbName);   
             var cursor = db.collection('usuarios').find().toArray((err, results) => {
                 if (err) throw err;
-                results.forEach((value) => {
-                    this.all += '' + JSON.stringify(value);
-                });
                 res.setHeader('Content-Type', 'application/json'),
-                res.send(this.all);
+                res.status(201).json(results[0]);
                 res.end('yes');
             })
 
