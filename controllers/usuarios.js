@@ -26,7 +26,7 @@ class Usuarios {
 
 
         MongoClient.connect(url,(err, client) => {
-            //assert.equal(null, err);
+            assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false);  
             const db = client.db(dbName);   
             var cursor = db.collection('usuarios').find().toArray((err, results) => {
@@ -50,7 +50,7 @@ class Usuarios {
 
 
         MongoClient.connect(url,(err, client)  =>  {
-            //assert.equal(null, err);
+            assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false); 
 
             const db = client.db(dbName);
@@ -88,7 +88,7 @@ class Usuarios {
 
 
         MongoClient.connect(url,(err, client)  =>  {
-            //assert.equal(null, err);
+            assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false); 
 
             const db = client.db(dbName);

@@ -7,7 +7,7 @@ module.exports =  {
       
        app.route('/api/conductores')
         .get(function(req, res)    {   controller.listall_conductores(req, res);   })
-        .post(function(req, res)   {   controller.crear_conductor(req, res);   })
+        .post(function(req, res)   { console.log("nombre de post"); console.log(req);  controller.crear_conductor(req, res);   })
         .put(function(req, res)   {   controller.modificar_conductor(req, res);   }); 
 
 

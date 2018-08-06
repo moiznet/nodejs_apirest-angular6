@@ -6,6 +6,7 @@ const assert = dbsvars.assert;
 const url = dbsvars.url;
 const dbName = dbsvars.dbName;
 const ObjectID = dbsvars.ObjectID;
+
 class Conductores {
 
 
@@ -26,7 +27,7 @@ class Conductores {
 
 
         MongoClient.connect(url,(err, client) => {
-           // assert.equal(null, err);
+            assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false);  
             const db = client.db(dbName);   
             var cursor = db.collection('conductores').find().toArray((err, results) => {
@@ -49,50 +50,12 @@ class Conductores {
     crearConductor(req, res) {
 
 
-
-
-
-
-         MongoClient.connect(url,(err, client)  =>  {
-            assert.equal(null, err);
-            //global.debug_logger("Conectado al servidor",false); 
-
-            const db = client.db(dbName);
-      
-
-         
-
-             db.collection('conductores').insertOne({
-
-                rol: "test",
-                cid:  "test",
-                nombre:  "test",
-                t_doc:  "test",
-                n_doc:  "test",
-                rh:  "test",
-                asignado:  "test"
-
-            }, function(err, doc) {
-                 if (err) {
-                   handleError(res, err.message, "Failed to create new contact.");
-                 } else {
-                   res.status(201).json(doc.ops[0]);
-                 }
-              });
-
-   
-
-            client.close();
-        });  
-
-
-
         MongoClient.connect(url,(err, client)  =>  {
-            //assert.equal(null, err);
+            assert.equal(null, err);
+            global.debug_logger(req.body.nombre,false); 
             global.debug_logger("Conectado al servidor",false); 
-
             const db = client.db(dbName);
-            var cursor = db.collection('conductores').insert({
+              db.collection('conductores').insert({
 
                 rol: this.rol,
                 cid: req.body.cid,
@@ -125,7 +88,7 @@ class Conductores {
 
 
         MongoClient.connect(url,(err, client)  =>  {
-            //assert.equal(null, err);
+            assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false); 
 
             const db = client.db(dbName);
