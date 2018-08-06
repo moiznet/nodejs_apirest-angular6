@@ -3,10 +3,9 @@
 const dbsvars = require("../model/db.js")
 const MongoClient = dbsvars.MongoClient;
 const assert = dbsvars.assert;
-//const url = dbsvars.url;
+const url = dbsvars.url;
 const dbName = dbsvars.dbName;
 const ObjectID = dbsvars.ObjectID;
-const url =  'mongodb://localhost:27017';
 class Conductores {
 
 
@@ -48,6 +47,44 @@ class Conductores {
 
 
     crearConductor(req, res) {
+
+
+
+
+
+
+         MongoClient.connect(url,(err, client)  =>  {
+            assert.equal(null, err);
+            //global.debug_logger("Conectado al servidor",false); 
+
+            const db = client.db(dbName);
+      
+
+         
+
+             db.collection('conductores').insertOne({
+
+                rol: "test",
+                cid:  "test",
+                nombre:  "test",
+                t_doc:  "test",
+                n_doc:  "test",
+                rh:  "test",
+                asignado:  "test"
+
+            }, function(err, doc) {
+                 if (err) {
+                   handleError(res, err.message, "Failed to create new contact.");
+                 } else {
+                   res.status(201).json(doc.ops[0]);
+                 }
+              });
+
+   
+
+            client.close();
+        });  
+
 
 
         MongoClient.connect(url,(err, client)  =>  {
