@@ -33,9 +33,8 @@ class Conductores {
             var cursor = db.collection('conductores').find().toArray((err, results) => {
                 if (err) throw err;
                 res.setHeader('Content-Type', 'application/json');
-                 res.header("Access-Control-Allow-Origin", "*");
-                res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-                res.status(201).json(results[0]);
+                console.log(results);
+                res.status(201).json(results);
                 res.end('yes');
             })
 

@@ -5,14 +5,14 @@ import { Http, Response } from '@angular/http';
 @Injectable()
 export class ContactService {
     private contactsUrl = 'https://damp-oasis-44947.herokuapp.com/api/conductores';
-
+    public listConductores = {};
     constructor (private http: Http) {}
 
     // get("/api/contacts")
     getContacts(): Promise<void | Contact[]> {
       return this.http.get(this.contactsUrl)
                  .toPromise()
-                 .then(response => console.log("perra"))
+                 .then((response) => {console.log(response); this.listConductores = JSON.parse(response["_body"]) ;   })
                  .catch(this.handleError);
     }
    

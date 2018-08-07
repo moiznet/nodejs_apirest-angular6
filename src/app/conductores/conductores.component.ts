@@ -11,28 +11,32 @@ import { Contact } from './conductor';
 export class ConductoresComponent implements OnInit {
 
 		public nombre:string ;
-    public contacts: Contact[];
-  //selectedContact: Contact;
+    public contacts;
 
 
 
-  constructor(private contactService: ContactService) {
+
+  constructor(
+    private _contactSevice: ContactService) {
   	this.nombre = "hola mundo";
+
   	
 
    }
 
   ngOnInit() {
-  //	console.log(this.nombre);
+      
+    this._contactSevice.getContacts().then((value) => {
 
-    this.contactService
-      .getContacts()
-      .then((contacts: Contact[]) => {
-        this.contacts = contacts.map((contact) => {
-            return contact;
-        });
+      this.contacts =  Array.of(this._contactSevice.listConductores);
+
+      
+      
+
+
+        console.log(this.contacts); 
       });
-
+    
   	
   }
 

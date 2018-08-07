@@ -66,7 +66,7 @@ class Logger extends Date {
             var cursor = db.collection('logger').find().toArray((err, results) => {
                 if (err) throw err;
                 res.setHeader('Content-Type', 'application/json');
-                res.status(201).json(results[0]);
+                res.status(201).json(results);
                 res.end('yes');
             })
 
