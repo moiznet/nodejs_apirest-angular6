@@ -16,9 +16,9 @@ var express = require("express"),
     app.use(methodOverride());
 
 // Create link to Angular build directory
-//var distDir = __dirname + "/dist/";
-//app.use(express.static(distDir));
-app.use(express.static(__dirname));
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+//app.use(express.static(__dirname));
 
 
 

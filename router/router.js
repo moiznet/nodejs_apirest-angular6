@@ -9,8 +9,8 @@ module.exports =  {
           res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
           next();
         });
-       
-       app.route('/').get(function(req, res) {  res.send("animo");  });
+
+      // app.route('/').get(function(req, res) {  res.send("animo");  });
       
        app.route('/api/conductores')
         .get(function(req, res)    {   controller.listall_conductores(req, res);   })

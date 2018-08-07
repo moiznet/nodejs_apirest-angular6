@@ -28,7 +28,7 @@ export class ConductoresComponent implements OnInit {
       
     this._contactSevice.getContacts().then((value) => {
 
-      this.contacts =  Array.of(this._contactSevice.listConductores);
+      this.contacts =  this._contactSevice.listConductores;
 
       
       
