@@ -27,9 +27,9 @@ export class ConductoresComponent implements OnInit {
 
   insertConductor(){
 
-    this._contactSevice.createConductor(this.conductor).then((value) => {
-    this.addconductor =  this._contactSevice.addconductor1;
-    console.log(this.addconductor);
+    // this._contactSevice.createConductor(this.conductor).then((value) => {
+    // this.addconductor =  this._contactSevice.addconductor1;
+    // console.log(this.addconductor);
 
     });
 
