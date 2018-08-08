@@ -25,10 +25,26 @@ export class ConductoresService {
                  .catch(this.handleError);
     }
 
-    // // get("/api/contacts/:id") endpoint not used by Angular app
+
+    // // put("/api/conductores/:id")
+    // updateContact(putContact: Conductor): Promise<void | Conductor> {
+    //   var putUrl = this.contactsUrl + '/' + putContact._id;
+    //   return this.http.put(putUrl, putContact)
+    //              .toPromise()
+    //              .then(response => response.json() as Conductor)
+    //              .catch(this.handleError);
+    // }
+
+
+
+
+
+
+
+
 
     // // delete("/api/contacts/:id")
-    // deleteContact(delContactId: String): Promise<void | String> {
+    // deleteContact(delContactId: String) {
     //   return this.http.delete(this.contactsUrl + '/' + delContactId)
     //              .toPromise()
     //              .then(response => response.json() as String)
