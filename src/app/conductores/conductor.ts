@@ -1,11 +1,16 @@
-export class Contact {
-    "_id?": string;
-    "rol": string;
-	"cid": string;
-	"nombre": string;
-	"t_doc": string;
-	"n_doc": number;
-	"rh": string;
-	"asignado": boolean;
+export class conductor {
+
+
+constructor(
+	    public _id: string,
+    public rol: string,
+	public cid: string,
+	public nombre: string,
+	public t_doc: string,
+	public n_doc: string,
+	public rh: string,
+	public asignado: boolean
+	){}
+}
  
 }

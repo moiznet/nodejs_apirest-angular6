@@ -122,6 +122,38 @@ class Conductores {
 
 
 
+    borrarConductor(req, res) {
+
+
+        MongoClient.connect(url,(err, client)  =>  {
+            assert.equal(null, err);
+            global.debug_logger("Conectado al servidor",false); 
+
+            const db = client.db(dbName);
+            db.collection('conductores').remove({ '_id': ObjectID(req.body._id) },(err, result)  => {
+                if (err) {
+                    res.json(err);
+                    res.end('yes');
+                };
+               
+                res.json(result);
+                global.debug_logger("se eliminó el conductor con id: "+result.nModified,true); 
+                res.end('yes');
+
+            });
+
+            client.close();
+        });
+
+
+    } //end modificarConductor
+
+
+
+
+
+
+
 } //end class conductores
 
 

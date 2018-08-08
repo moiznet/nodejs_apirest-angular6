@@ -1,28 +1,29 @@
 import { Injectable } from '@angular/core';
-import { Contact } from './conductor';
 import { Http, Response } from '@angular/http';
 
 @Injectable()
-export class ContactService {
+export class ConductoresService {
     private contactsUrl = 'https://damp-oasis-44947.herokuapp.com/api/conductores';
     public listConductores = {};
+    public addconductor1 = {};
+    
     constructor (private http: Http) {}
 
-    // get("/api/contacts")
-    getContacts(): Promise<void | Contact[]> {
+    // get("/api/conductores")
+    getContacts() {
       return this.http.get(this.contactsUrl)
                  .toPromise()
                  .then((response) => {console.log(response); this.listConductores = JSON.parse(response["_body"]) ;   })
                  .catch(this.handleError);
     }
-   
-    // // post("/api/contacts")
-    // createContact(newContact: Contact): Promise<void | Contact> {
-    //   return this.http.post(this.contactsUrl, newContact)
-    //              .toPromise()
-    //              .then(response => response.json() as Contact)
-    //              .catch(this.handleError);
-    // }
+    
+    // post("/api/conductores")
+    createConductor(newConductor) {
+      return this.http.post(this.contactsUrl, newConductor)
+                 .toPromise()
+                 .then((response) => {console.log(response); this.addconductor1 = JSON.parse(response["_body"]) ;   )
+                 .catch(this.handleError);
+    }
 
     // // get("/api/contacts/:id") endpoint not used by Angular app
 
@@ -35,11 +36,11 @@ export class ContactService {
     // }
 
     // // put("/api/contacts/:id")
-    // updateContact(putContact: Contact): Promise<void | Contact> {
+    // updateContact(putContact: Conductor): Promise<void | Conductor> {
     //   var putUrl = this.contactsUrl + '/' + putContact._id;
     //   return this.http.put(putUrl, putContact)
     //              .toPromise()
-    //              .then(response => response.json() as Contact)
+    //              .then(response => response.json() as Conductor)
     //              .catch(this.handleError);
     // }
 

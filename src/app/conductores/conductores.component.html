@@ -2,6 +2,43 @@
   conductores works! {{nombre}}
 </p>
 
+<div class="agregar">
+	<form #formConductor="ngForm" (ngSubmit)="insertConductor()" class="col-md-12">
+    <div class="form-group">
+      <label for="conductor_cid">cid</label>
+      <input type="text" class="form-control" name="conductor_cid"  [(ngModel)]="conductor.cid" placeholder="c1001"/>
+    </div>
+    <div class="form-group">
+      <label for="conductor_nombre">nombre</label>
+      <input class="form-control" name="conductor_nombre"  #conductor_nombre="ngModel" [(ngModel)]="conductor.nombre" placeholder="jhon doe conductor"/>
+    </div>
+    <div class="form-group">
+      <label for="t_doc">Tipo de documento</label>
+      <input class="form-control" name="t_doc"  #t_doc="ngModel" [(ngModel)]="conductor.t_doc" placeholder="CC"/>
+    </div>
+    <div class="form-group">
+      <label for="n_doc">Numero de documento</label>
+      <input class="form-control" name="n_doc"  #n_doc="ngModel" [(ngModel)]="conductor.n_doc" placeholder="0123456789"/>
+    </div>
+    <div class="form-group">
+      <label for="rh">rh</label>
+      <input class="form-control" name="rh"  #rh="ngModel" [(ngModel)]="conductor.rh" placeholder="o+"/>
+    </div>
+   
+    <input type="submit" value="Create">
+
+
+
+
+
+  </form>
+
+
+
+</div>
+ 
+
+
 <div>
     <h2>COnductores</h2>
     <ul class="list-group">
