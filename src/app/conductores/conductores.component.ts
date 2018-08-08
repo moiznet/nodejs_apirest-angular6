@@ -31,7 +31,7 @@ export class ConductoresComponent implements OnInit {
     // this.addconductor =  this._contactSevice.addconductor1;
     // console.log(this.addconductor);
 
-    });
+   // });
 
 
   }
