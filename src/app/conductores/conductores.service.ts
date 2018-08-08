@@ -17,12 +17,7 @@ export class ConductoresService {
                  .catch(this.handleError);
     }
     
-    // post("/api/conductores")
-    createConductor(newConductor) {
-      return this.http.post(this.contactsUrl, newConductor)
-                 .toPromise().then((response) => {console.log(response); this.addconductor1 = JSON.parse(response["_body"]) ;   )
-                 .catch(this.handleError);
-    }
+ 
 
 
     // // put("/api/conductores/:id")
