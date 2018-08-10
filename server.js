@@ -19,7 +19,7 @@ var express = require("express"),
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
-var images = __dirname + "/img/";
+var images = __dirname + "/img/src";
 app.use(express.static('images'));
 //app.use(express.static(__dirname));
 
