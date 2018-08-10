@@ -18,6 +18,9 @@ var express = require("express"),
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
+
+var images = __dirname + "/img/";
+app.use(express.static('images'));
 //app.use(express.static(__dirname));
 
 
