@@ -5,7 +5,7 @@ import { conductor } from './conductor';
 @Component({
   selector: 'app-conductores',
   templateUrl: './conductores.component.html',
-  styleUrls: ['./conductores.component.css'],
+  styleUrls: ['./conductores.component.less'],
   providers: [ConductoresService]
 })
 export class ConductoresComponent implements OnInit {

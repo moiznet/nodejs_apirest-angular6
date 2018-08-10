@@ -2,7 +2,7 @@ export class conductor {
 
 
 constructor(
-	    public _id: string,
+	public _id: string,
     public rol: string,
 	public cid: string,
 	public nombre: string,

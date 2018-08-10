@@ -1,13 +1,26 @@
-<nav>
-	<a [routerLink]="['/asignacion']">Rutas y asignacion</a> - 
-	<a [routerLink]="['/conductores']">Conductores </a> - 
-	<a [routerLink]="['/vehiculos']">Veiculos</a> - 
-	<a [routerLink]="['/usuarios']">Usuarios</a> - 
-	<a [routerLink]="['/logger']">Log de cambios</a>
-</nav>
+<header>
+	<div class="container">
+	<div class="left"><h1 class="logo" >Transportadores Asociados</h1></div> 
+	<div class="right"><nav><ul>
+		<li><a [routerLink]="['/asignacion']">Rutas y asignacion</a></li>
+		<li><a [routerLink]="['/conductores']">Conductores </a></li>
+		<li><a [routerLink]="['/vehiculos']">Veiculos</a></li>
+		<li><a [routerLink]="['/usuarios']">Usuarios</a></li>
+		<li><a [routerLink]="['/logger']">Log de cambios</a></li>
+	</ul></nav></div>
+	</div>
+</header>
 
-<div class="container">
+
+
+<section class="container">
 	<router-outlet>	</router-outlet>
- <!--  <contact-list></contact-list> -->
+</section>
 
-</div>
+
+<footer>
+	<div class="container">
+	<div class="me">Juan Sebastian Bernal Bermudez</div>
+	<div class="copy">(an apirest - nodeJs,angular6) 2018 ©</div>
+	</div>
+</footer>
