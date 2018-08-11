@@ -16,8 +16,6 @@ import { AsignacionComponent } from './asignacion/asignacion.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ContactDetailsComponent,
-    ContactListComponent,
     ConductoresComponent,
     VehiculosComponent,
     UsuariosComponent,
