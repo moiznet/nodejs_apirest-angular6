@@ -5,8 +5,6 @@ import { HttpModule } from '@angular/http';
 import { routing,appRoutingProviders } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { ContactDetailsComponent } from './contacts/contact-details/contact-details.component';
-import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { ConductoresComponent } from './conductores/conductores.component';
 import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
