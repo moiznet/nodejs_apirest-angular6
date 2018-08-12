@@ -30,13 +30,13 @@ export class ConductoresService {
     deleteConductor(idConductor) {
 
      
-      let data = ({ _id: idConductor});
-      console.log(data);
-      return this.http.delete(this.contactsUrl, data)
+      
+      return this.http.delete(this.contactsUrl+'?_id='+idConductor, )
                  .toPromise()
                  .then((response) => {console.log(response); this.deleteconductor = JSON.parse(response["_body"]) ; }  )
                  .catch(this.handleError);
-    }
+               }
+    }  
 
 
 
