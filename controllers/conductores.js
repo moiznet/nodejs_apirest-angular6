@@ -30,7 +30,7 @@ class Conductores {
             assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false);  
             const db = client.db(dbName);   
-            var cursor = db.collection('conductores').find().sort({ _id: 1 }).toArray((err, results) => {
+            var cursor = db.collection('conductores').find().sort({ _id: -1 }).toArray((err, results) => {
                 if (err) throw err;
                 res.setHeader('Content-Type', 'application/json');
                 console.log(results);
