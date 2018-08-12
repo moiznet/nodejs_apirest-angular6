@@ -35,7 +35,7 @@ export class ConductoresService {
                  .toPromise()
                  .then((response) => {console.log(response); this.deleteconductor = JSON.parse(response["_body"]) ; }  )
                  .catch(this.handleError);
-               }
+                 
     }  
 
 
