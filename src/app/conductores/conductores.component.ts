@@ -28,8 +28,10 @@ export class ConductoresComponent implements OnInit {
     public conductores;
     public conductor: conductor;
     public addconductor;
+    public deleteconductor;
     public divsstatus : boolean;
     public divOpen : string;
+    public conductorId : string;
 
 
 
@@ -41,6 +43,7 @@ export class ConductoresComponent implements OnInit {
     this.conductor = new conductor("","","","","","","",true) ;
     this.divsstatus = false;
     this.divOpen = 'out';
+    this.conductorId = '';
    }
 
   insertConductor(){
@@ -54,8 +57,21 @@ export class ConductoresComponent implements OnInit {
 
 
   }
+
+  eraseConductor(id){
+
+    this._contactSevice.deleteConductor(id).then((value) => {
+    this.deleteconductor =  this._contactSevice.deleteconductor;
+    console.log(this.deleteconductor);  
+    alert("se borro el conductor con id: "+this.deleteconductor.ops[0]._id);
+    window.location.reload(); 
+     });
+
+
+
+  }
    colapseView():void {
-        console.log("hola"+this.divOpen);
+        
         this.divOpen = this.divOpen === 'out' ? 'in' : 'out';      
     }
 

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions, Request, RequestMethod} from '@angular/http';
+import { HttpClient,HttpHeaders, HttpParams  } from "@angular/common/http";
 
 @Injectable()
 export class ConductoresService {
     private contactsUrl = 'https://damp-oasis-44947.herokuapp.com/api/conductores';
     public listConductores = {};
     public addconductor1 = {};
+    public deleteconductor = {};
     
     constructor (private http: Http) {}
 
@@ -22,6 +24,22 @@ export class ConductoresService {
       return this.http.post(this.contactsUrl, newConductor)
                  .toPromise()
                  .then((response) => {console.log(response); this.addconductor1 = JSON.parse(response["_body"]) ; }  )
+                 .catch(this.handleError);
+    }
+
+    // post("/api/conductores")
+    deleteConductor(idConductor) {
+           
+      let body= JSON.stringify({
+          _id: idConductor
+    
+      });
+
+      
+
+      return this.http.delete( this.contactsUrl, body )
+                 .toPromise()
+                 .then((response) => {console.log(response); this.deleteconductor = JSON.parse(response["_body"]) ; }  )
                  .catch(this.handleError);
     }
 

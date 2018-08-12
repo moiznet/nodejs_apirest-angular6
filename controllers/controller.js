@@ -24,7 +24,7 @@ module.exports = {
     listall_conductores: (req, res) => { let conduc  = new conductoresclass();  conduc.listarConductores(req, res);   },
     crear_conductor:     (req, res) => { let conduc  = new conductoresclass();  conduc.crearConductor(req, res);   },
     modificar_conductor: (req, res) => { let conduc  = new conductoresclass();  conduc.modificarConductor(req, res);   },
-    borrar_conductor: (req, res) => { let conduc  = new conductoresclass();  conduc.borrarConductor(req, res);   },    
+    borrar_conductor:    (req, res) => { let conduc  = new conductoresclass();  conduc.borrarConductor(req, res);   },    
     listall_vehiculos:   (req, res) => { let vehicu  = new vehiculosclass(); vehicu.listarVehiculos(req, res);   },
     crear_vehiculo:      (req, res) => { let vehicu  = new vehiculosclass(); vehicu.crearVehiculo(req, res);   },
     modificar_vehiculo:  (req, res) => { let vehicu  = new vehiculosclass();  vehicu.modificarVehiculo(req, res);   },
