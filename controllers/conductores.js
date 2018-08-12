@@ -130,7 +130,7 @@ class Conductores {
             global.debug_logger("Conectado al servidor",false); 
 
             const db = client.db(dbName);
-            db.collection('conductores').remove({ '_id': ObjectID(req.body._id) },(err, result)  => {
+            db.collection('conductores').remove({ '_id': ObjectID(req.query._id) },(err, result)  => {
                 if (err) {
                     res.json(err);
                     res.end('yes');

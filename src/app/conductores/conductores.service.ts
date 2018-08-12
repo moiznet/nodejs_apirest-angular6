@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, RequestOptions, Request, RequestMethod} from '@angular/http';
-import { HttpClient,HttpHeaders, HttpParams  } from "@angular/common/http";
+import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class ConductoresService {
@@ -29,15 +28,11 @@ export class ConductoresService {
 
     // post("/api/conductores")
     deleteConductor(idConductor) {
-           
-      let body= JSON.stringify({
-          _id: idConductor
-    
-      });
 
-      
-
-      return this.http.delete( this.contactsUrl, body )
+     
+      let data = ({ _id: idConductor});
+      console.log(data);
+      return this.http.delete(this.contactsUrl, data)
                  .toPromise()
                  .then((response) => {console.log(response); this.deleteconductor = JSON.parse(response["_body"]) ; }  )
                  .catch(this.handleError);
