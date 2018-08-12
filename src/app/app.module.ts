@@ -10,6 +10,7 @@ import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LoggerComponent } from './logger/logger.component';
 import { AsignacionComponent } from './asignacion/asignacion.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { AsignacionComponent } from './asignacion/asignacion.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    BrowserModule, 
+    BrowserAnimationsModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

@@ -1,0 +1,239 @@
+body{
+	
+margin:0px;
+	
+padding:0px;
+	
+font-family: arial;
+}
+
+.container {
+    /* width: 100%; */
+    max-width: 1100px;
+    margin:  0 auto;
+    padding: 10px;
+    overflow: hidden;
+}
+
+ 
+/*row*/
+.row {
+    width: 95%;
+    background-color: #EAEBEE;
+    padding: 1%;
+    margin: 1%;
+    float: left;
+    border-radius:  10px;
+}
+
+.data {
+    float: left;
+}
+
+.img {
+    padding: 4px;
+    width: 15%;
+    float: left;
+}
+
+.img img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #424251;
+}
+
+.data {
+    border-right: solid 1px #CACAD9;
+    margin: 0px 0px;
+    padding: 0px 2%;
+    float: left;
+    width: 22.6%;
+}
+.data.ident {    width: 17%;
+    min-height: 118px;}
+
+.fvalue {
+    font-size: 18px;
+    margin-top: 22px;
+    font-weight: 700;
+    color: #424251;
+}
+
+
+.ffield {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.frow {
+    width: 100%;
+    float: left;
+    margin-bottom: 9px;
+}
+
+.field {
+    float: left;
+    font-weight: bold;
+    font-size: 14px;
+    color: #01456C;
+}
+
+.value {
+    float: left;
+    padding-left: 5%;
+    font-size: 14px;
+    color: #424251;
+}
+
+.value.nombrecond {
+    float: left;
+    width: 100%;
+    margin: 21px auto;
+    text-align: center;
+    color: #424251;
+}
+
+.btn.asignar {
+    cursor: pointer;
+    float: right;
+    width: 100%;
+    text-align: right;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: -3px;
+    color: #01456C;
+    /* margin-bottom: 12px; */
+}
+
+.tramo {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #424251;
+    float: left;
+    width: 100%;
+}
+
+.origin {width: auto;float: left;}
+
+.destino {
+    width: auto;
+    float: left;
+    margin-left: 10%;
+}
+.destino::before {
+  content:"-";
+  position: relative;
+  margin-left: -10px;
+    margin-right: 6px;
+}
+
+
+.imgmap {
+    float: left;
+    background-color: blanchedalmond;
+    width: 60px;
+    margin-top: 26px;
+    margin-left: 15px;
+}
+
+.imgmap img {
+    width: 100%;
+}
+
+
+
+
+/*media queries*/
+
+@media (max-width: 1049px) {
+  .data.ident {
+}
+}
+@media (max-width: 618px) {
+.img {
+  
+height: 75px;
+  
+background-color: transparent;
+  
+width: 48%;
+}
+
+.img img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #424251;
+    max-width: 171px;
+    float: right;
+    margin-top: 30px;
+}
+
+
+.data {
+    width: 50%;
+    background-color: transparent;
+    border: none;
+    border-right: 1px solid #ccc;
+    padding: 0% 4%;
+}
+.data.ident {
+    max-width: 68% !important;
+    width: 52%;
+    height: 200px;
+    text-align: left;
+    padding-top: 50px;
+}
+.btn.asignar {
+
+    text-align: left;
+
+
+}
+.tramo {
+    width: 100% !important;
+}
+}
+
+@media (max-width: 424px) {
+.data.ident {
+    max-width: 100% !important;
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    padding-top: 20px;
+}
+.img {
+    height: auto;
+    background-color: transparent;
+    width: 98%;
+    text-align: center;
+}
+.img img {
+    width: 100%;
+    height: auto;
+    border: 2px solid #424251;
+    max-width: 171px;
+    float: none;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.value.nombrecond {
+    float: left;
+    width: 100%;
+    margin: 24px auto;
+    text-align: left;
+
+}
+.row {
+
+    padding-bottom: 20px;
+}
+.destino::before {
+    content: none;
+  
+}
+
+
+}

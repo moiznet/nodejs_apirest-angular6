@@ -1,9 +1,9 @@
-<p>
-  conductores works! {{nombre}}
-</p>
-
-<div class="agregar">
-	<form #formConductor="ngForm" (ngSubmit)="insertConductor()" class="col-md-12">
+<div class="rowhead">
+  <div class="add_conductor" (click)="colapseView()"><div class="plusicon">+</div>
+  <div class="btntext"  >Añadir conductor</div></div>
+</div>
+<div class="formadd"   [@openClose]="divOpen"  >
+  <form #formConductor="ngForm" (ngSubmit)="insertConductor()" class="col-md-12">
     <div class="form-group">
       <label for="conductor_cid">cid</label>
       <input type="text" class="form-control" name="conductor_cid"  [(ngModel)]="conductor.cid" placeholder="c1001"/>
@@ -26,25 +26,43 @@
     </div>
    
     <input type="submit" value="Create">
-
-
-
-
-
-  </form>
-
-
-
-</div>
- 
-
-
-<div>
-    <h2>COnductores</h2>
-    <ul class="list-group">
-      <li class="list-group-item"  *ngFor="let contact of contacts"   (click)="selectContact(contact)"   [class.active]="contact === selectedContact">
-        {{contact.nombre}}
-      </li>
-    </ul>
     
+  </form> 
+</div>
+<div class="content">
+  <div class="row" id="{{conductorarr._id}}" *ngFor="let conductorarr of conductores"   > <!--  *ngFor="let contact of contacts"   (click)="selectContact(contact)"   [class.active]="contact === selectedContact" -->
+    <div class="img"><img src="assets/img/usericon.png" alt=""></div>
+    <div class="data ident">
+      <div class="ffield">Conductor:</div>
+      <div class="fvalue">{{conductorarr.cid}}</div>
+      <div class="fnombre">{{conductorarr.nombre}}</div>
+    </div>
+    <div class="data fields">
+      <div class="frow">
+        <div class="field">Edad</div>
+        <div class="value">{{conductorarr.edad}}</div>
+      </div>
+      <div class="frow">
+        <div class="field">tipo de documento</div>
+        <div class="value">{{conductorarr.t_doc}}</div>
+      </div>
+      <div class="frow">
+        <div class="field">Numero de documento</div>
+        <div class="value">{{conductorarr.n_doc}}</div>
+      </div>
+    </div>
+    <div class="data fields">
+      <div class="frow">
+        <div class="field">Rh</div>
+        <div class="value">{{conductorarr.rh}}</div>
+      </div>
+      <div class="frow">
+        <div class="btngray"><img src="assets/img/editicon.png" alt=""></div>
+        <div class="btngray"><img src="assets/img/deleteicon.png" alt=""></div>
+      </div>
+    
+    </div>
+  
   </div>
+</div>
+
