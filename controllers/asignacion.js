@@ -65,21 +65,22 @@ class Asignacion {
             assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false); 
             	console.log(req.body.vehiid);
+                console.log(req.body.nombre);
             const db = client.db(dbName);
             db.collection('vehiculos').update(
 
             { '_id': ObjectID(''+req.body.vehiid) },    
             {
-              $set:{  "conductor.asignado" : true, "conductor.nombre" : req.body.nombre, "conductor.id" : req.body.condid   }
+              $set:{  "conductor.asignado" : true, "conductor.nombre_cond" : req.body.nombre, "conductor.id" : req.body.condid   }
             },(err, result)  => {
                 if (err) {
                     res.json(err);
-                    res.end('yes');
+                    res.end('yes2');
                 };
                
                 //res.json(result);
                 global.debug_logger("se actualizo el vehiculo a asignado con id: "+result.nModified,true); 
-                res.end('yes');
+                res.end('yes2');
 
             });
 
