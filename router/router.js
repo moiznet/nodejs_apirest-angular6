@@ -38,7 +38,7 @@ module.exports =  {
 
 
         app.route('/api/logger')
-        .get(function(req, res)    {  res.end('yes');  });
+        .get(function(req, res)    {  controller.listall_log(req, res);   });
 
  
        app.route('/api/asignar')
