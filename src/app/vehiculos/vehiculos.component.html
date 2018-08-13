@@ -43,12 +43,12 @@
       <input class="form-control" name="n_destino"  #n_destino="ngModel" [(ngModel)]="vehiculo7.n_destino" placeholder="+"/>
     </div>
     <div class="form-group">
-      <label for="o_lat">Coordenadas origen latitud</label>
-      <input class="form-control" name="o_lat"  #o_lat="ngModel" [(ngModel)]="vehiculo7.o_lat" placeholder="+"/>
+      <label for="d_lat">Coordenadas origen latitud</label>
+      <input class="form-control" name="d_lat"  #o_lat="ngModel" [(ngModel)]="vehiculo7.d_lat" placeholder="+"/>
     </div>
     <div class="form-group">
-      <label for="o_long">Coordenadas origen longitud</label>
-      <input class="form-control" name="o_long"  #o_long="ngModel" [(ngModel)]="vehiculo7.o_long" placeholder="+"/>
+      <label for="d_long">Coordenadas origen longitud</label>
+      <input class="form-control" name="d_long"  #o_long="ngModel" [(ngModel)]="vehiculo7.d_long" placeholder="+"/>
     </div>
 
     <input type="submit" value="Create">
@@ -88,15 +88,15 @@
 		<div class="data fields">
 			<div class="frow">
 				<div class="field">Origen</div>
-				<div class="value">{{vehiculoarr.origen.nombre}} </div>
-				<div class="cords"><div class="lat">{{vehiculoarr.origen.lat}} ,</div>
-				<div class="log">{{vehiculoarr.origen.long}}</div> (lat,long)</div>
+				<div class="value">{{vehiculoarr.origen.n_origen}} </div>
+				<div class="cords"><div class="lat">{{vehiculoarr.origen.o_lat}} ,</div>
+				<div class="log">{{vehiculoarr.origen.o_long}}</div> (lat,long)</div>
 			</div>
 			<div class="frow">
 				<div class="field">Destino</div>
-				<div class="value">{{vehiculoarr.destino.nombre}}  </div>
-				<div class="cords"><div class="lat">{{vehiculoarr.destino.lat}}  ,</div>
-				<div class="log">{{vehiculoarr.destino.long}}</div> (lat,long)</div>
+				<div class="value">{{vehiculoarr.destino.n_destino}}  </div>
+				<div class="cords"><div class="lat">{{vehiculoarr.destino.d_lat}}  ,</div>
+				<div class="log">{{vehiculoarr.destino.d_long}}</div> (lat,long)</div>
 			</div>
 
 		</div>

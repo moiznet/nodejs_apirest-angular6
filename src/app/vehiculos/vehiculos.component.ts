@@ -77,7 +77,7 @@ export class VehiculosComponent implements OnInit {
 
   }
 
-  eraseConductor(id){
+  eraseVehiculo(id){
 
     this._contactSevice.deleteVehiculo(id).then((value) => {
     this.deletevehiculo =  this._contactSevice.deletevehiculo;

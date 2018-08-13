@@ -146,7 +146,7 @@ class Conductores {
         });
 
 
-    } //end modificarConductor
+    } //end borrarConductor
 
 
 

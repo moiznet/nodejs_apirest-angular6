@@ -26,11 +26,13 @@ module.exports =  {
         app.route('/api/vehiculos')
         .get(function(req, res)    {  controller.listall_vehiculos(req, res);   })
         .post(function(req, res)   {  controller.crear_vehiculo(req, res);   })
+        .delete(function(req, res)   {  controller.borrar_vehiculo(req, res);   })
         .put(function(req, res)    {  controller.modificar_vehiculo(req, res);   }); 
 
         app.route('/api/usuarios')
         .get(function(req, res)    {  controller.listall_usuarios(req, res);   })
         .post(function(req, res)   {  controller.crear_usuario(req, res);   })
+        .delete(function(req, res)   {  controller.borrar_usuario(req, res);   })
         .put(function(req, res)    {  controller.modificar_usuario(req, res);   });
 
 

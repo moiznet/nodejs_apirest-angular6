@@ -121,7 +121,31 @@ class Usuarios {
 
     } //end modificarConductor
 
+    borrarUsuario(req, res) {
 
+
+        MongoClient.connect(url,(err, client)  =>  {
+            assert.equal(null, err);
+            global.debug_logger("Conectado al servidor",false); 
+
+            const db = client.db(dbName);
+            db.collection('usuarios').remove({ '_id': ObjectID(req.query._id) },(err, result)  => {
+                if (err) {
+                    res.json(err);
+                    res.end('yes');
+                };
+               
+                res.json(result);
+                global.debug_logger("se eliminó el usuario con id: "+result.nModified,true); 
+                res.end('yes');
+
+            });
+
+            client.close();
+        });
+
+
+    } //end borrarUsuario
 
 
 } //end class conductores
