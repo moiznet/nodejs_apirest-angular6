@@ -63,7 +63,7 @@ class Logger extends Date {
             assert.equal(null, err);
             global.debug_logger("Conectado al servidor",false);  
             const db = client.db(dbName);   
-            var cursor = db.collection('logger').find().toArray((err, results) => {
+            var cursor = db.collection('logger').find().sort({ _id: -1 }).toArray((err, results) => {
                 if (err) throw err;
                 res.setHeader('Content-Type', 'application/json');
                 res.status(201).json(results);

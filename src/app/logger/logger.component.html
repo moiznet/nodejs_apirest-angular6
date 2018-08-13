@@ -1,3 +1,23 @@
-<p>
-  logger works!
-</p>
+<ul class="content" [@listStagger]="logger" >
+
+		<li class="row"  id="{{loggerarr._id}}" *ngFor="let loggerarr of loggers">
+			<div class="data">
+	
+				<div class="fvalue">{{loggerarr.fecha}}</div>
+				
+			</div>
+			<div class="data fields">
+
+				<div class="fvalue">{{loggerarr.nombre}} ({{loggerarr.ip}})</div>
+			
+			</div>
+			<div class="data fields">
+				
+				<div class="fvalue">{{loggerarr.mensage}}</div>
+			
+			</div>
+			
+		</li>
+</ul>
+
+
