@@ -64,7 +64,7 @@ export class ConductoresComponent implements OnInit {
     this.addconductor =  this._contactSevice.addconductor1;
     console.log(this.addconductor);  
     alert("se creo el conductor con id: "+this.addconductor.ops[0]._id);
-    window.location.reload(); 
+    this.ngOnInit(); 
 
      });
 
