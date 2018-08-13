@@ -5,9 +5,9 @@ module.exports =  {
        var controller = require('../controllers/controller.js');
 
        app.use(function(req, res, next) {
-      
-          res.header('Access-Control-Allow-Methods', 'DELETE,PUT,*');
-          
+          res.header("Access-Control-Allow-Origin", "*");
+          res.header('Access-Control-Allow-Methods', 'DELETE');
+          //res.header('Access-Control-Allow-Methods', 'PUT');
           res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
           next();
         });
@@ -44,13 +44,6 @@ module.exports =  {
        app.route('/api/asignar')
          .get(function(req, res)   {       })
          .put(function(req, res)   {  controller.asignar(req, res);   });
-
-
-       app.route('/api/liberar')
-       .get(function(req, res)   {       })
-       .put(function(req, res)   {  controller.liberar(req, res);   });
-
-
 
      }
 	
