@@ -34,5 +34,6 @@ module.exports = {
     modificar_usuario:   (req, res) => { let usuario = new usuariosclass();  usuario.modificarUsuario(req, res);   },
     borrar_usuario:    (req, res) => { let usuario  = new usuariosclass();  usuario.borrarUsuario(req, res);   },
     asignar:             (req, res) => { let asignacionobj = new asignacionclass();  asignacionobj.asignar(req, res);   },
+    liberar:             (req, res) => { let liberacionobj = new asignacionclass();  liberacionobj.liberar(req, res);   },
     listall_log:         (req, res) => { let loggerobj = new loggerclass('cargando lista de logs',false);    loggerobj.listarLog(req, res);    }
 }

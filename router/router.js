@@ -45,6 +45,13 @@ module.exports =  {
          .get(function(req, res)   {       })
          .put(function(req, res)   {  controller.asignar(req, res);   });
 
+
+       app.route('/api/liberar')
+       .get(function(req, res)   {       })
+       .put(function(req, res)   {  controller.liberar(req, res);   });
+
+
+
      }
 	
   }

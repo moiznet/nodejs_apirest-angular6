@@ -30,7 +30,7 @@
             <div class="value nombrecond" *ngIf="vehiculoarr.conductor.asignado" >{{vehiculoarr.conductor.nombre_cond}}</div>
             <div class="value nombrecond" *ngIf="!vehiculoarr.conductor.asignado" >Conductor no asignado</div>
 
-            <div class="btn asignar" (click)="openModal('custom-modal-1',vehiculoarr._id)" >Asignar +</div>
+            <div class="btn asignar" (click)="openModal('custom-modal-1',vehiculoarr._id,vehiculoarr.conductor.id)" >Asignar +</div>
         </div>
         <div class="data fields">
             <div class="field">Ruta / Mapa</div>
@@ -50,17 +50,33 @@
     
 
     <ul class="conductoreslist">
-        <li class="fila" id="{{conductorarr._id}}" *ngFor="let conductorarr of conductores" >
-            <div class="columna one">{{conductorarr.nombre}}</div>
-            <div class="columna two">
-                <div class="asig" *ngIf="!conductorarr.asignado" >Asignado</div>
-                <div class="noasig" *ngIf="conductorarr.asignado" >No asignado</div>
-            </div>
-            <div class="columna tree">
-                <div class="btnAsignar" *ngIf="conductorarr.asignado" (click)="asignarConductor(conductorarr.nombre,this.openVehiculoId,conductorarr._id)" >Asignar</div>
-                <div class="btnAsignar" *ngIf="!conductorarr.asignado" >Liberar</div>
 
-            </div>
+        <li class="fila" id="{{conductorarr._id}}"    *ngFor="let conductorarr of conductores" >
+           
+                <div class="columna one">{{conductorarr.nombre}}</div>
+                <div class="columna two">
+                    <div class="asig" *ngIf="!conductorarr.asignado" >Asignado</div>
+                    <div class="noasig" *ngIf="conductorarr.asignado" >No asignado</div>
+                </div>
+                <div class="columna tree" *ngIf="openConductorId == null ">
+                    
+                    
+                        <div class="btnAsignar" *ngIf="conductorarr.asignado" (click)="asignarConductor(conductorarr.nombre,this.openVehiculoId,conductorarr._id)" >Asignar</div>
+                        <div class="" *ngIf="!conductorarr.asignado" >liberar en vehiculo asignado</div>
+                    
+
+
+                </div>
+                <div class="columna tree" *ngIf="openConductorId != null">
+                    
+                    <ng-container *ngIf="openConductorId == conductorarr._id">
+                        <div class="btnAsignar" *ngIf="conductorarr.asignado" (click)="asignarConductor(conductorarr.nombre,openVehiculoId,conductorarr._id)" >Asignar</div>
+                        <div class="btnAsignar" *ngIf="!conductorarr.asignado" (click)="liberarConductor(openVehiculoId,conductorarr._id)" >Liberar</div>
+                    </ng-container>
+
+
+                </div>
+            
         </li>
         
 

@@ -65,6 +65,7 @@ export class ConductoresComponent implements OnInit {
     console.log(this.addconductor);  
     alert("se creo el conductor con id: "+this.addconductor.ops[0]._id);
     window.location.reload(); 
+
      });
 
 
@@ -77,6 +78,7 @@ export class ConductoresComponent implements OnInit {
     console.log(this.deleteconductor);  
     alert("se borro("+this.deleteconductor.n+") el conductor con id: "+id );
     //window.location.reload(); 
+    this.ngOnInit();
      });
 
 

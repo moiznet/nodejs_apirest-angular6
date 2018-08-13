@@ -22,6 +22,13 @@ class Asignacion {
 
     }
 
+    liberar(req, res){
+
+        this.liberarConductor(req, res); 
+        this.liberarFlota(req, res);
+
+    }
+
 
     asignarConductor(req, res) {
 
@@ -80,6 +87,74 @@ class Asignacion {
                
                 //res.json(result);
                 global.debug_logger("se actualizo el vehiculo a asignado con id: "+result.nModified,true); 
+                res.end('yes2');
+
+            });
+
+            client.close();
+        });
+        
+
+
+    }
+
+    liberarConductor(req, res) {
+
+        
+
+        MongoClient.connect(url,(err, client)  =>  {
+            assert.equal(null, err);
+            global.debug_logger("Conectado al servidor",false); 
+
+            const db = client.db(dbName);
+            
+            db.collection('conductores').update(
+
+            { '_id': ObjectID(''+req.body.condid) },    
+            {
+              $set:{  "asignado": true   }
+            },(err, result)  => {
+                if (err) {
+                    res.json(err);
+                    res.end('yes');
+                };
+               
+                res.json(result);
+                global.debug_logger("se actualizo el condcutor a asignado con id: "+result.nModified,true); 
+                
+
+            });
+
+            client.close();
+        });
+
+
+
+    }
+
+    liberarFlota(req, res) {
+
+        
+
+        MongoClient.connect(url,(err, client)  =>  {
+            assert.equal(null, err);
+            global.debug_logger("Conectado al servidor",false); 
+                console.log(req.body.vehiid);
+                console.log(req.body.nombre);
+            const db = client.db(dbName);
+            db.collection('vehiculos').update(
+
+            { '_id': ObjectID(''+req.body.vehiid) },    
+            {
+              $set:{  "conductor.asignado" : false, "conductor.nombre_cond" : null, "conductor.id" : null   }
+            },(err, result)  => {
+                if (err) {
+                    res.json(err);
+                    res.end('yes2');
+                };
+               
+                //res.json(result);
+                global.debug_logger("se libero el vehiculo asignado con id: "+result.nModified,true); 
                 res.end('yes2');
 
             });

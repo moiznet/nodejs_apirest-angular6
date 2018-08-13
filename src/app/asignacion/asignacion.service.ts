@@ -12,6 +12,7 @@ export class VehiculosService {
     public listConductores ={};
 
     private asignarUrl = 'https://damp-oasis-44947.herokuapp.com/api/asignar';
+    private liberarUrl = 'https://damp-oasis-44947.herokuapp.com/api/liberar';
     public listAsignar ={};
 
     public newasignar;
@@ -39,6 +40,14 @@ export class VehiculosService {
         // get("/api/conductores")
     getAsignacion(newasignar) {
       return this.http.put(this.asignarUrl, newasignar)
+                 .toPromise()
+                 .then((response) => {console.log(response);    })
+                 .catch(this.handleError);
+    }
+
+
+    getLiberar(newliberar) {
+      return this.http.put(this.liberarUrl, newliberar)
                  .toPromise()
                  .then((response) => {console.log(response);    })
                  .catch(this.handleError);

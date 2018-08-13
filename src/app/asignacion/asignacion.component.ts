@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VehiculosService } from './asignacion.service';
 import {  trigger,  state,  style,  animate, query, stagger,  transition } from '@angular/animations';
 import { ModalService } from './modal.service';
-import { asignar } from './asignar';
+import { asignar , liberar} from './asignar';
 
  @Component({
   selector: 'app-asignacion',
@@ -31,9 +31,11 @@ export class AsignacionComponent implements OnInit {
    
 
     public asignar7: asignar;
+    public liberar8: liberar;
     public divsstatus : boolean;
     public divOpen : string;
     public openVehiculoId : string;
+    public openConductorId : string;
     public conductores;
     public asignado2 ;
 
@@ -51,7 +53,11 @@ export class AsignacionComponent implements OnInit {
     this.divsstatus = false;
     this.divOpen = 'out';
     this.openVehiculoId = '';
+    this.openConductorId = '';
     this.asignar7 = new asignar("","","") ;
+    this.liberar8 = new liberar("","") ;
+
+    
     this.asignado2 ;
     
 
@@ -66,9 +72,17 @@ export class AsignacionComponent implements OnInit {
     }
 
 
-    openModal(id: string, vehiculoId ) {
+    openModal(id: string, vehiculoId , conductorAsignadoId ) {
+
+      console.log(conductorAsignadoId);
         this.modalService.open(id);
         this.openVehiculoId = vehiculoId;
+        this.openConductorId = conductorAsignadoId;
+
+        conductorAsignadoId ? console.log("condicion 1"+conductorAsignadoId) : console.log("condicion 2"+conductorAsignadoId);
+
+
+       console.log(this.openConductorId);
         
 
         this._contactSevice.getConductores().then((value) => {
@@ -82,14 +96,26 @@ export class AsignacionComponent implements OnInit {
         this.modalService.close(id);
     }
 
+    liberarConductor(openVehiculoId, conductorarrid) {
+        console.log(openVehiculoId+' / '+conductorarrid);
+        this.liberar8 = new liberar(openVehiculoId,conductorarrid) ;
+        console.log(this.liberar8);
+        this._contactSevice.getLiberar(this.liberar8).then((value) => { 
+        alert("se asigno el conductor: ");
+        
+        this._contactSevice.getConductores().then((value) => {   this.conductores =  this._contactSevice.listConductores;    console.log(this.conductores); });
+
+         });
+    }
+
      asignarConductor(nombre,vehiid,condid){
        this.asignar7 = new asignar(nombre,vehiid,condid) ;
+       
        console.log(this.asignar7);
-      this._contactSevice.getAsignacion(this.asignar7).then((value) => {
-     // this.asignado2 =  this._contactSevice.listAsignar;
-      //console.log(this.asignado2);  
-      alert("se creo el conductor con id: "+this.asignado2);
-      //window.location.reload(); 
+      this._contactSevice.getAsignacion(this.asignar7).then((value) => { 
+      alert("se asigno el conductor: ");
+      this._contactSevice.getConductores().then((value) => {   this.conductores =  this._contactSevice.listConductores;    console.log(this.conductores); });
+
        });
 
 
