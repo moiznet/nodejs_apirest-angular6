@@ -56,8 +56,8 @@ export class VehiculosComponent implements OnInit {
     private _contactSevice: VehiculosService
   ) {
   	this.nombre = "hola mundo";
-    this.origen = new origen("", "" ,"") ;
-    this.destino = new destino("", "" ,"") ;
+    this.origen = new origen("",  0,0) ;
+    this.destino = new destino("", 0 ,0) ;
     this.vehiculo7 = new vehiculo("", "" ,"","","", this.origen , this.destino , this.conductor) ;
     
     this.divsstatus = false;
