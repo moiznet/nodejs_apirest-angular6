@@ -1,39 +1,71 @@
-<div class="row">
-    <div class="img"><img src="assets/img/vehiculo.png" alt=""></div>
-    <div class="data ident">
-        <div class="ffield">Vehículo:</div>
-        <div class="fvalue">TA-1001</div>
-    </div>
-    <div class="data fields">
-        <div class="frow">
-            <div class="field">Tipo de vehículo</div>
-            <div class="value">autos</div>
+
+
+<ul class="content"  [@listStagger]="vehiculos"  >
+    <li class="row" id="{{vehiculoarr._id}}" *ngFor="let vehiculoarr of vehiculos" >
+        <div class="img"><img src="assets/img/vehiculo.png" alt=""></div>
+        <div class="data ident">
+            <div class="ffield">Vehículo:</div>
+            <div class="fvalue">{{vehiculoarr._id}}</div>
         </div>
-        <div class="frow">
-            <div class="field">Placas</div>
-            <div class="value">xyz765</div>
+        <div class="data fields">
+            <div class="frow">
+                <div class="field">Tipo de vehículo</div>
+                <div class="value">{{vehiculoarr.t_vehiculo}}</div>
+            </div>
+            <div class="frow">
+                <div class="field">Placas</div>
+                <div class="value">{{vehiculoarr.placas}}</div>
+            </div>
+            <div class="frow">
+                <div class="field">Soat</div>
+                <div class="value">{{vehiculoarr.soat}}</div>
+            </div>
+            <div class="frow">
+                <div class="field">Fecha</div>
+                <div class="value">{{vehiculoarr.fecha}}</div>
+            </div>
         </div>
-        <div class="frow">
-            <div class="field">Soat</div>
-            <div class="value">2000000</div>
+        <div class="data fields">
+            <div class="field">Conductor asignado</div>
+            <div class="value nombrecond" *ngIf="vehiculoarr.conductor.asignado" >{{vehiculoarr.conductor.nombre_cond}}</div>
+            <div class="value nombrecond" *ngIf="!vehiculoarr.conductor.asignado" >Conductor no asignado</div>
+
+            <div class="btn asignar" (click)="openModal('custom-modal-1',vehiculoarr._id)" >Asignar +</div>
         </div>
-        <div class="frow">
-            <div class="field">Fecha</div>
-            <div class="value">31/07/18</div>
-        </div>
-    </div>
-    <div class="data fields">
-        <div class="field">Conductor asignado</div>
-        <div class="value nombrecond">conductor de taxi nombre</div>
-        <div class="btn asignar">Asignar +</div>
-    </div>
-    <div class="data fields">
-        <div class="field">Ruta / Mapa</div>
-        <div class="tramo">
-            <div class="origin">Cali</div>
-            <div class="destino">Bogota</div>
+        <div class="data fields">
+            <div class="field">Ruta / Mapa</div>
+            <div class="tramo">
+                <div class="origin">{{vehiculoarr.origen.n_origen}}</div>
+                <div class="destino">{{vehiculoarr.destino.n_destino}}</div>
+            </div>
+            
         </div>
         
-    </div>
+    </li>
+</ul>
+
+ 
+<jw-modal id="custom-modal-1">
+    <div class="titulo">Asignar conductor a vehiculo ({{this.openVehiculoId}})</div>
     
-</div>
+
+    <ul class="conductoreslist">
+        <li class="fila" id="{{conductorarr._id}}" *ngFor="let conductorarr of conductores" >
+            <div class="columna one">{{conductorarr.nombre}}</div>
+            <div class="columna two">
+                <div class="asig" *ngIf="!conductorarr.asignado" >Asignado</div>
+                <div class="noasig" *ngIf="conductorarr.asignado" >No asignado</div>
+            </div>
+            <div class="columna tree">
+                <div class="btnAsignar" *ngIf="conductorarr.asignado" (click)="asignarConductor(conductorarr.nombre,this.openVehiculoId,conductorarr._id)" >Asignar</div>
+                <div class="btnAsignar" *ngIf="!conductorarr.asignado" >Liberar</div>
+
+            </div>
+        </li>
+        
+
+    </ul>
+    
+
+    <button (click)="closeModal('custom-modal-1');">Close</button>
+</jw-modal>

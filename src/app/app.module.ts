@@ -10,6 +10,8 @@ import { VehiculosComponent } from './vehiculos/vehiculos.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { LoggerComponent } from './logger/logger.component';
 import { AsignacionComponent } from './asignacion/asignacion.component';
+import { ModalComponent } from './asignacion/modal.component';
+import { ModalService } from './asignacion/modal.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -19,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     VehiculosComponent,
     UsuariosComponent,
     LoggerComponent,
-    AsignacionComponent
+    AsignacionComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule, 
     BrowserAnimationsModule
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders,ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

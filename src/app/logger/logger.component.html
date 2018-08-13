@@ -1,17 +1,17 @@
-<ul class="content" [@listStagger]="logger" >
+<ul class="content" [@listStagger]="loggers" >
 
 		<li class="row"  id="{{loggerarr._id}}" *ngFor="let loggerarr of loggers">
-			<div class="data">
+			<div class="data one">
 	
 				<div class="fvalue">{{loggerarr.fecha}}</div>
 				
 			</div>
-			<div class="data fields">
+			<div class="data fields two">
 
 				<div class="fvalue">{{loggerarr.nombre}} ({{loggerarr.ip}})</div>
 			
 			</div>
-			<div class="data fields">
+			<div class="data fields tree">
 				
 				<div class="fvalue">{{loggerarr.mensage}}</div>
 			
