@@ -54,6 +54,11 @@
         <div class="field">Numero de documento: </div>
         <div class="value">{{conductorarr.n_doc}}</div>
       </div>
+      <div class="frow">
+        <div class="field">Conductor asignado: </div>
+        <div class="value"  *ngIf="conductorarr.asignado" >No asignado</div>
+        <div class="value"  *ngIf="!conductorarr.asignado" >Asiganado</div>
+      </div>
     </div>
     <div class="data fields">
       <div class="frow">
