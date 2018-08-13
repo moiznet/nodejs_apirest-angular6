@@ -1,3 +1,81 @@
-<p>
-  usuarios works!
-</p>
+<div class="rowhead">
+  <div class="add_conductor" (click)="colapseView()"><div class="plusicon">+</div>
+  <div class="btntext"  >Añadir usuario</div></div>
+</div>
+
+
+<div class="formadd"   [@openClose]="divOpen"  >
+  <form #formConductor="ngForm" (ngSubmit)="insertUsuario()" class="col-md-12">
+    <div class="form-group">
+      <label for="rol">rol</label>
+      <input type="text" class="form-control" name="rol"  [(ngModel)]="usuario7.rol" placeholder="Usuario"/>
+    </div>
+    <div class="form-group">
+      <label for="nombre">nombre</label>
+      <input class="form-control" name="nombre"  #nombre="ngModel" [(ngModel)]="usuario7.nombre" placeholder=""/>
+    </div>
+    <div class="form-group">
+      <label for="usuario">usuario</label>
+      <input class="form-control" name="usuario"  #usuario="ngModel" [(ngModel)]="usuario7.usuario" placeholder=""/>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password</label>
+      <input class="form-control" name="pwd"  #pwd="ngModel" [(ngModel)]="usuario7.pwd" placeholder=""/>
+    </div>
+    <div class="form-group">
+      <label for="email">email</label>
+      <input class="form-control" name="email"  #email="ngModel" [(ngModel)]="usuario7.email" placeholder=""/>
+    </div>
+    <div class="form-group">
+      <label for="edad">edad</label>
+      <input class="form-control" name="edad"  #edad="ngModel" [(ngModel)]="usuario7.edad" placeholder=""/>
+    </div>
+    <div class="form-group">
+      <label for="t_doc">tipo de documento</label>
+      <input class="form-control" name="t_doc"  #t_doc="ngModel" [(ngModel)]="usuario7.t_doc" placeholder="CC"/>
+    </div>
+    <div class="form-group">
+      <label for="n_doc">Numero de documento</label>
+      <input class="form-control" name="n_doc"  #n_doc="ngModel" [(ngModel)]="usuario7.n_doc" placeholder=""/>
+    </div>
+   
+    <input type="submit" value="Create">
+    
+  </form> 
+</div>
+
+
+<ul class="content"  [@listStagger]="usuarios"  >
+  <li  class="row" id="{{usuarioarr._id}}" *ngFor="let usuarioarr of usuarios"   > <!--  *ngFor="let contact of contacts"   (click)="selectContact(contact)"   [class.active]="contact === selectedContact" -->
+			<div class="img"><img src="assets/img/usericon.png" alt=""></div>
+			<div class="data ident">
+				<div class="ffield">{{usuarioarr.rol}}:</div>
+				<div class="fvalue">{{usuarioarr.email}}</div>
+				<div class="fnombre">{{usuarioarr.nombre}}</div>
+			</div>
+			<div class="data fields">
+				<div class="frow">
+					<div class="field">Edad</div>
+					<div class="value">{{usuarioarr.edad}}</div>
+				</div>
+				<div class="frow">
+					<div class="field">tipo de documento</div>
+					<div class="value">{{usuarioarr.t_doc}}</div>
+				</div>
+				<div class="frow">
+					<div class="field">Numero de documento</div>
+					<div class="value">{{usuarioarr.n_doc}}</div>
+				</div>
+			</div>
+			<div class="data fields">
+				
+				<div class="frow">
+					<div class="btngray"><img src="assets/img/editicon.png" alt=""></div>
+					<div class="btngray" (click)="eraseUsuario(usuarioarr._id)"><img src="assets/img/deleteicon.png" alt=""></div>
+				</div>
+			
+			</div>
+  
+  </li>
+</ul>
+

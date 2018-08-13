@@ -2,6 +2,8 @@
   <div class="add_conductor" (click)="colapseView()"><div class="plusicon">+</div>
   <div class="btntext"  >Añadir conductor</div></div>
 </div>
+
+
 <div class="formadd"   [@openClose]="divOpen"  >
   <form #formConductor="ngForm" (ngSubmit)="insertConductor()" class="col-md-12">
     <div class="form-group">
@@ -29,6 +31,8 @@
     
   </form> 
 </div>
+
+
 <ul class="content"  [@listStagger]="conductores"  >
   <li  class="row" id="{{conductorarr._id}}" *ngFor="let conductorarr of conductores"   > <!--  *ngFor="let contact of contacts"   (click)="selectContact(contact)"   [class.active]="contact === selectedContact" -->
     <div class="img"><img src="assets/img/usericon.png" alt=""></div>

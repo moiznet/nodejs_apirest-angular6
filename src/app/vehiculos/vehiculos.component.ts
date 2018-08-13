@@ -92,7 +92,7 @@ export class VehiculosComponent implements OnInit {
    colapseView():void {
        
         this.divOpen = this.divOpen === 'out' ? 'in' : 'out'; 
-         console.log("hola esta clickendo"+this.divOpen);     
+           
     }
 
 
