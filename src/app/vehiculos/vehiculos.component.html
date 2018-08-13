@@ -1,65 +1,118 @@
 <div class="rowhead">
-			<div class="add_conductor"><div class="plusicon">+</div>
-			<div class="btntext">Añadir vehículo</div></div>
+  <div class="add_conductor" (click)="colapseView()"><div class="plusicon">+</div>
+  <div class="btntext"  >Añadir vehículo</div></div>
+</div>
+
+
+<div class="formadd"   [@openClose]="divOpen"  >
+  <form #formConductor="ngForm" (ngSubmit)="insertVehiculo()" class="col-md-12">
+    <div class="form-group">
+      <label for="_id">ID vehículo</label>
+      <input type="text" class="form-control" name="_id"  [(ngModel)]="vehiculo7._id" placeholder=""/>
+    </div>
+    <div class="form-group">
+      <label for="t_vehiculo">Tipo de vehículo</label>
+      <input class="form-control" name="t_vehiculo"  #t_vehiculo="ngModel" [(ngModel)]="vehiculo7.t_vehiculo" placeholder="Autobus"/>
+    </div>
+    <div class="form-group">
+      <label for="placas">Placas</label>
+      <input class="form-control" name="placas"  #placas="ngModel" [(ngModel)]="vehiculo7.placas" placeholder="fff548"/>
+    </div>
+    <div class="form-group">
+      <label for="soat">Soat</label>
+      <input class="form-control" name="soat"  #soat="ngModel" [(ngModel)]="vehiculo7.soat" placeholder="2000000"/>
+    </div>
+    <div class="form-group">
+      <label for="fecha">Fecha</label>
+      <input class="form-control" name="fecha"  #fecha="ngModel" [(ngModel)]="vehiculo7.fecha" placeholder="05/07/18 08:56:00"/>
+    </div>
+        <div class="form-group">
+      <label for="n_origen">Nombre de origen</label>
+      <input class="form-control" name="n_origen"  #n_origen="ngModel" [(ngModel)]="vehiculo7.n_origen" placeholder="+"/>
+    </div>
+        <div class="form-group">
+      <label for="o_lat">Coordenadas origen latitud</label>
+      <input class="form-control" name="o_lat"  #o_lat="ngModel" [(ngModel)]="vehiculo7.o_lat" placeholder="+"/>
+    </div>
+         <div class="form-group">
+      <label for="o_long">Coordenadas origen longitud</label>
+      <input class="form-control" name="o_long"  #o_long="ngModel" [(ngModel)]="vehiculo7.o_long" placeholder="+"/>
+    </div>
+    <div class="form-group">
+      <label for="n_destino">Nombre de destino</label>
+      <input class="form-control" name="n_destino"  #n_destino="ngModel" [(ngModel)]="vehiculo7.n_destino" placeholder="+"/>
+    </div>
+    <div class="form-group">
+      <label for="o_lat">Coordenadas origen latitud</label>
+      <input class="form-control" name="o_lat"  #o_lat="ngModel" [(ngModel)]="vehiculo7.o_lat" placeholder="+"/>
+    </div>
+    <div class="form-group">
+      <label for="o_long">Coordenadas origen longitud</label>
+      <input class="form-control" name="o_long"  #o_long="ngModel" [(ngModel)]="vehiculo7.o_long" placeholder="+"/>
+    </div>
+
+    <input type="submit" value="Create">
+    
+  </form> 
+</div>
+
+
+<ul class="content"  [@listStagger]="vehiculos"  >
+	<li  class="row" id="{{vehiculoarr._id}}" *ngFor="let vehiculoarr of vehiculos"   > <!--  *ngFor="let contact of contacts"   (click)="selectContact(contact)"   [class.active]="contact === -->
+		<div class="img">
+			<img src="assets/img/vehiculoicon.png" alt="">
 		</div>
-		<div class="row">
-			<div class="img"><img src="assets/img/vehiculoicon.png" alt=""></div>
-			<div class="data ident">
-				<div class="ffield">Vehiculo:</div>
-				<div class="fvalue">TA-1001</div>
-				
-			</div>
-			<div class="data fields">
-				<div class="frow">
-					<div class="field">Tipo de vehículo</div>
-					<div class="value">autobus</div>
-				</div>
-				<div class="frow">
-					<div class="field">Placas</div>
-					<div class="value">xyz891</div>
-				</div>
-				<div class="frow">
-					<div class="field">Saat</div>
-					<div class="value">2000000</div>
-				</div>
-				<div class="frow">
-					<div class="field">Fecha</div>
-					<div class="value">31/07/18 - 08:15</div>
-				</div>
-			</div>
-			<div class="data fields">
-				<div class="frow">
-					<div class="field">Origen</div>
-					<div class="value">Cali </div>
-					<div class="cords"><div class="lat">3.45 ,</div>
-					<div class="log">-76.53</div> (lat,long)</div>
-				</div>
-				<div class="frow">
-					<div class="field">Origen</div>
-					<div class="value">Bogota </div>
-					<div class="cords"><div class="lat">4.71 ,</div>
-					<div class="log">-74.0</div> (lat,long)</div>
-				</div>
-			
-			</div>
-			<div class="data fields">
-				<div class="frow">
-					<div class="field">Mapa:</div>
-					<div class="mapicon"><img src="assets/img//mapicon.png" alt="ver mapa"></div>
-					
-				</div>
-			
-			</div>
-			<div class="data fields">
-				<div class="frow">
-					<div class="btngray"><img src="assets/img//editicon.png" alt=""></div>
-					<div class="btngray"><img src="assets/img//deleteicon.png" alt=""></div>
-				</div>
-			
-			</div>
-
-
-
-			
+		<div class="data ident">
+			<div class="ffield">Vehiculo:</div>
+			<div class="fvalue">{{vehiculoarr._id}}</div>
 			
 		</div>
+		<div class="data fields">
+			<div class="frow">
+				<div class="field">Tipo de vehículo</div>
+				<div class="value">{{vehiculoarr.t_vehiculo}}</div>
+			</div>
+			<div class="frow">
+				<div class="field">Placas</div>
+				<div class="value">{{vehiculoarr.placas}}</div>
+			</div>
+			<div class="frow">
+				<div class="field">Soat</div>
+				<div class="value">{{vehiculoarr.soat}}</div>
+			</div>
+			<div class="frow">
+				<div class="field">Fecha</div>
+				<div class="value">{{vehiculoarr.fecha}}</div>
+			</div>
+		</div>
+		<div class="data fields">
+			<div class="frow">
+				<div class="field">Origen</div>
+				<div class="value">{{vehiculoarr.origen.nombre}} </div>
+				<div class="cords"><div class="lat">{{vehiculoarr.origen.lat}} ,</div>
+				<div class="log">{{vehiculoarr.origen.long}}</div> (lat,long)</div>
+			</div>
+			<div class="frow">
+				<div class="field">Destino</div>
+				<div class="value">{{vehiculoarr.destino.nombre}}  </div>
+				<div class="cords"><div class="lat">{{vehiculoarr.destino.lat}}  ,</div>
+				<div class="log">{{vehiculoarr.destino.long}}</div> (lat,long)</div>
+			</div>
+
+		</div>
+		<div class="data fields">
+			<div class="frow">
+				<div class="field">Mapa:</div>
+				<div class="mapicon"><img src="assets/img//mapicon.png" alt="ver mapa"></div>	
+			</div>
+		</div>
+		<div class="data fields">
+			<div class="frow">
+				<div class="btngray"><img src="assets/img//editicon.png" alt=""></div>
+				<div class="btngray" (click)="eraseVehiculo(vehiculoarr._id)" ><img src="assets/img//deleteicon.png" alt=""></div>
+			</div>
+		</div>
+
+	</li>
+
+</ul>

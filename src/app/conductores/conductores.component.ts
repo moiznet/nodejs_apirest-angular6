@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConductoresService } from './conductores.service';
 import { conductor } from './conductor';
-import {  trigger,  state,  style,  animate,  transition } from '@angular/animations';
+import {  trigger,  state,  style,  animate, query, stagger,  transition } from '@angular/animations';
 
 
 @Component({
@@ -19,7 +19,19 @@ import {  trigger,  state,  style,  animate,  transition } from '@angular/animat
       })),
       transition('in => out', animate('500ms ease-out')),
       transition('out => in', animate('500ms ease-in'))
-    ])
+    ]),
+    trigger('listStagger',[
+
+        transition('* <=> *',[
+          query(':enter',[
+
+            style({opacity:0, transform: 'translateY(-15px)'}),
+            stagger('50ms', animate('550ms ease-out',
+              style({ opacity: 1, transform: 'translateY(0px)'})))
+            ], { optional : true }),
+          query(':leave', animate('50ms', style({ opacity:0 })), { optional : true })
+          ])
+      ])
   ]
 })
 export class ConductoresComponent implements OnInit {
@@ -63,7 +75,7 @@ export class ConductoresComponent implements OnInit {
     this._contactSevice.deleteConductor(id).then((value) => {
     this.deleteconductor =  this._contactSevice.deleteconductor;
     console.log(this.deleteconductor);  
-    alert("se borro el conductor con id: "+this.deleteconductor.ops[0]._id);
+    alert("se borro("+this.deleteconductor.n+") el conductor con id: "+id );
     window.location.reload(); 
      });
 

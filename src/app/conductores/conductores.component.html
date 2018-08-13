@@ -29,8 +29,8 @@
     
   </form> 
 </div>
-<div class="content">
-  <div class="row" id="{{conductorarr._id}}" *ngFor="let conductorarr of conductores"   > <!--  *ngFor="let contact of contacts"   (click)="selectContact(contact)"   [class.active]="contact === selectedContact" -->
+<ul class="content"  [@listStagger]="conductores"  >
+  <li  class="row" id="{{conductorarr._id}}" *ngFor="let conductorarr of conductores"   > <!--  *ngFor="let contact of contacts"   (click)="selectContact(contact)"   [class.active]="contact === selectedContact" -->
     <div class="img"><img src="assets/img/usericon.png" alt=""></div>
     <div class="data ident">
       <div class="ffield">Conductor:</div>
@@ -39,30 +39,30 @@
     </div>
     <div class="data fields">
       <div class="frow">
-        <div class="field">Edad</div>
-        <div class="value">{{conductorarr.edad}}</div>
+        <div class="field">ID: </div>
+        <div class="value">{{conductorarr._id}}</div>
       </div>
       <div class="frow">
-        <div class="field">tipo de documento</div>
+        <div class="field">tipo de documento: </div>
         <div class="value">{{conductorarr.t_doc}}</div>
       </div>
       <div class="frow">
-        <div class="field">Numero de documento</div>
+        <div class="field">Numero de documento: </div>
         <div class="value">{{conductorarr.n_doc}}</div>
       </div>
     </div>
     <div class="data fields">
       <div class="frow">
-        <div class="field">Rh</div>
+        <div class="field">Rh: </div>
         <div class="value">{{conductorarr.rh}}</div>
       </div>
       <div class="frow">
-        <div class="btngray" (click)="eraseConductor(conductorarr._id)"  ><img src="assets/img/editicon.png" alt=""></div>
-        <div class="btngray"><img src="assets/img/deleteicon.png" alt=""></div>
+        <div class="btngray"   ><img src="assets/img/editicon.png" alt=""></div>
+        <div class="btngray" (click)="eraseConductor(conductorarr._id)"><img src="assets/img/deleteicon.png" alt=""></div>
       </div>
     
     </div>
   
-  </div>
-</div>
+  </li>
+</ul>
 

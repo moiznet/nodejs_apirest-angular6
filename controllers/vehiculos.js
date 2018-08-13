@@ -60,16 +60,16 @@ class Vehiculos {
 					fecha: req.body.fecha,
 					origen: {
 
-						 nombre: req.body.nombre,
-						 lat: req.body.lat,
-						 long: req.body.long
+						 n_origen: req.body.n_origen,
+						 o_lat: req.body.o_lat,
+						 o_long: req.body.o_long
 					},
 
 					destino: {
 
-						 name: req.body.name,
-						 lat: req.body.lat,
-						 long: req.body.long
+						 n_destino: req.body.n_destino,
+						 d_lat: req.body.d_lat,
+						 d_long: req.body.d_long
 						
 					},
 					conductor: {
