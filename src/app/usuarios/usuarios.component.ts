@@ -66,7 +66,7 @@ export class UsuariosComponent implements OnInit {
     this.addusuario =  this._contactSevice.addusuario1;
     console.log(this.addusuario);  
     alert("se creo el conductor con id: "+this.addusuario.ops[0]._id);
-    //window.location.reload(); 
+    this.ngOnInit();
      });
 
 
@@ -78,7 +78,7 @@ export class UsuariosComponent implements OnInit {
     this.deleteusuario =  this._contactSevice.deleteusuario;
     console.log(this.deleteusuario);  
     alert("se borro("+this.deleteusuario.n+") el conductor con id: "+id );
-    window.location.reload(); 
+    this.ngOnInit();
      });
 
 

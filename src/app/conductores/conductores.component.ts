@@ -77,7 +77,6 @@ export class ConductoresComponent implements OnInit {
     this.deleteconductor =  this._contactSevice.deleteconductor;
     console.log(this.deleteconductor);  
     alert("se borro("+this.deleteconductor.n+") el conductor con id: "+id );
-    //window.location.reload(); 
     this.ngOnInit();
      });
 

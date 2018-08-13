@@ -71,7 +71,7 @@ export class VehiculosComponent implements OnInit {
     this.addvehiculo =  this._contactSevice.addvehiculo1;
     console.log(this.addvehiculo);  
     alert("se creo el conductor con id: "+this.addvehiculo.ops[0]._id);
-    //window.location.reload(); 
+    this.ngOnInit();
      });
 
 
@@ -83,7 +83,7 @@ export class VehiculosComponent implements OnInit {
     this.deletevehiculo =  this._contactSevice.deletevehiculo;
     console.log(this.deletevehiculo);  
     alert("se borro("+this.deletevehiculo.n+") el conductor con id: "+id );
-    window.location.reload(); 
+    this.ngOnInit();
      });
 
 
