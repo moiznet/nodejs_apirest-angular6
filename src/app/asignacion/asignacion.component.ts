@@ -84,9 +84,10 @@ export class AsignacionComponent implements OnInit {
 
      asignarConductor(nombre,vehiid,condid){
        this.asignar7 = new asignar(nombre,vehiid,condid) ;
+       console.log(this.asignar7);
       this._contactSevice.getAsignacion(this.asignar7).then((value) => {
-      this.asignado2 =  this._contactSevice.listAsignar;
-      console.log(this.asignado2);  
+     // this.asignado2 =  this._contactSevice.listAsignar;
+      //console.log(this.asignado2);  
       alert("se creo el conductor con id: "+this.asignado2);
       //window.location.reload(); 
        });

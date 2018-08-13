@@ -40,7 +40,7 @@ export class VehiculosService {
     getAsignacion(newasignar) {
       return this.http.put(this.asignarUrl, newasignar)
                  .toPromise()
-                 .then((response) => {console.log(response); this.listAsignar = JSON.parse(response["nModified"]) ;   })
+                 .then((response) => {console.log(response);    })
                  .catch(this.handleError);
     }
 

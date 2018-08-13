@@ -37,7 +37,7 @@ class Asignacion {
 
             { '_id': ObjectID(''+req.body.condid) },    
             {
-              $set:{  "asignado": true   }
+              $set:{  "asignado": false   }
             },(err, result)  => {
                 if (err) {
                     res.json(err);
